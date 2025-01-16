@@ -72,3 +72,14 @@ const products = [
       price: 999.99,
     },
   ];
+
+  // Select DOM Elements
+  const productsWrapper = document.getElementById('products-wrapper');
+  const checkboxes = document.querySelectorAll('.check');
+  const filtersContainer = document.getElementById('filters-container');
+  const searchInput = document.querySelector('#search');
+  const cartCount = document.getElementById('cart-count');
+
+  // Init cart item count
+  let cartItemCount = 0
+
