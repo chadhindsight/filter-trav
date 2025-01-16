@@ -80,6 +80,7 @@ const products = [
   const searchInput = document.querySelector('#search');
   const cartCount = document.getElementById('cart-count');
 
-  // Init cart item count
-  let cartItemCount = 0
+  // Initizlize the var that tracks items in cart
+  let cartItemCount = 0;
 
+  const productElements = [];
