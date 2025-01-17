@@ -141,4 +141,6 @@ function updateCart(event) {
 
     cartItemCount ++;
   }
+
+  cartCount.innerText = cartItemCount.toString();
 }
