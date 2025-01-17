@@ -85,28 +85,40 @@ const products = [
 
   const productElements = [];
 
-  products.forEach(product =>{
-    const productElement = document.createElement("div");
+// Loop over the products and create the product elements
+products.forEach((product) => {
+  const productEl = createProductElement(product);
+  productsEls.push(productEl);
+  productsWrapperEl.appendChild(productEl);
+});
 
-    productElement.className = 'item space-y-2';
+// Function that creates DOM element for products
+function createProductElement(product) {
+  const productEl = document.createElement('div');
 
-    productElement.innerHTML = `<div
-    class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl"
-    >
-    <img
+  productEl.className = 'item space-y-2';
+
+  productEl.innerHTML = `<div
+  class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border"
+>
+  <img
     src="${product.url}"
     alt="${product.name}"
     class="w-full h-full object-cover"
-    />
-    <button
-      class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
-      >Add To Cart</
-    >
-  </div>
-  <p class="text-xl">${product.name}</p>
-  <strong>$${product.price.toLocaleString()}</strong>`;
+  />
+  <span
+    class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+    >Add To Cart</span
+  >
+</div>
+<p class="text-xl">${product.name}</p>
+<strong>$${product.price.toLocaleString()}</strong>`;
 
-  productElements.push(productElement)
-  productsWrapper.appendChild(productElement);
+  productEl.querySelector('.status').addEventListener('click', addToCart);
 
-  })
+  return productEl;
+}
+
+function addToCart(e) {
+  
+}
