@@ -114,11 +114,31 @@ function createProductElement(product) {
 <p class="text-xl">${product.name}</p>
 <strong>$${product.price.toLocaleString()}</strong>`;
 
-  productElement.querySelector('.status').addEventListener('click', addToCart);
+  productElement.querySelector('.status').addEventListener('click', updateCart);
 
   return productElement;
 }
 
-function addToCart(e) {
+function updateCart(event) {
+  const statusElement = event.target;
 
+  if(statusElement.classList.contains('added')) {
+    // remove item from cart
+    statusElement.classList.add('added');
+    statusElement.innerText = "Add to Cart";
+    statusElement.classList.remove("bg-red-600");
+    statusElement.classList.add("bg-red-800");   
+    
+    cartItemCount --;
+
+  }
+  else {
+    // add item to cart 
+    statusElement.classList.add('added');
+    statusElement.innerText = "Remove From Cart";
+    statusElement.classList.remove("bg-gray-800");
+    statusElement.classList.remove("bg-red-600");    
+
+    cartItemCount ++;
+  }
 }
