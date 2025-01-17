@@ -72,7 +72,7 @@ const products = [
       price: 999.99,
     },
   ];
-
+  console.log('cdsfdsf')
   // Select DOM Elements
   const productsWrapper = document.getElementById('products-wrapper');
   const checkboxes = document.querySelectorAll('.check');
@@ -88,8 +88,8 @@ const products = [
 // Loop over the products and create the product elements
 products.forEach((product) => {
   const productEl = createProductElement(product);
-  productsEls.push(productEl);
-  productsWrapperEl.appendChild(productEl);
+  productElements.push(productEl);
+  productsWrapper.appendChild(productEl);
 });
 
 // Function that creates DOM element for products
@@ -120,5 +120,5 @@ function createProductElement(product) {
 }
 
 function addToCart(e) {
-  
+
 }
