@@ -121,14 +121,13 @@ function createProductElement(product) {
 
 function updateCart(event) {
   const statusElement = event.target;
-
+  
   if(statusElement.classList.contains('added')) {
     // remove item from cart
-    statusElement.classList.add('added');
-    statusElement.innerText = "Add to Cart";
-    statusElement.classList.remove("bg-red-600");
-    statusElement.classList.add("bg-red-800");   
-    
+    statusElement.classList.remove('added');
+    statusElement.innerText = 'Add To Cart';
+    statusElement.classList.remove('bg-red-600');
+    statusElement.classList.add('bg-gray-800');
     cartItemCount --;
 
   }
@@ -137,10 +136,11 @@ function updateCart(event) {
     statusElement.classList.add('added');
     statusElement.innerText = "Remove From Cart";
     statusElement.classList.remove("bg-gray-800");
-    statusElement.classList.remove("bg-red-600");    
+    statusElement.classList.add("bg-red-600");    
 
     cartItemCount ++;
   }
 
   cartCount.innerText = cartItemCount.toString();
+  console.log(cartCount, cartItemCount);
 }
