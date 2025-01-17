@@ -72,7 +72,7 @@ const products = [
       price: 999.99,
     },
   ];
-  console.log('cdsfdsf')
+  
   // Select DOM Elements
   const productsWrapper = document.getElementById('products-wrapper');
   const checkboxes = document.querySelectorAll('.check');
@@ -87,18 +87,18 @@ const products = [
 
 // Loop over the products and create the product elements
 products.forEach((product) => {
-  const productEl = createProductElement(product);
-  productElements.push(productEl);
-  productsWrapper.appendChild(productEl);
+  const productElement = createProductElement(product);
+  productElements.push(productElement);
+  productsWrapper.appendChild(productElement);
 });
 
 // Function that creates DOM element for products
 function createProductElement(product) {
-  const productEl = document.createElement('div');
+  const productElement = document.createElement('div');
 
-  productEl.className = 'item space-y-2';
+  productElement.className = 'item space-y-2';
 
-  productEl.innerHTML = `<div
+  productElement.innerHTML = `<div
   class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border"
 >
   <img
@@ -114,9 +114,9 @@ function createProductElement(product) {
 <p class="text-xl">${product.name}</p>
 <strong>$${product.price.toLocaleString()}</strong>`;
 
-  productEl.querySelector('.status').addEventListener('click', addToCart);
+  productElement.querySelector('.status').addEventListener('click', addToCart);
 
-  return productEl;
+  return productElement;
 }
 
 function addToCart(e) {
