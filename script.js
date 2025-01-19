@@ -84,6 +84,10 @@ const products = [
   let cartItemCount = 0;
 
   const productElements = [];
+  console.log(searchInput, 'ass')
+  // Event listeners for filtering
+  filtersContainer.addEventListener('change', filterProducts);
+  searchInput.addEventListener('input', filterProducts);
 
 // Loop over the products and create the product elements
 products.forEach((product) => {
@@ -143,4 +147,31 @@ function updateCart(event) {
 
   cartCount.innerText = cartItemCount.toString();
   console.log(cartCount, cartItemCount);
+ 
+}
+function filterProducts( ) {
+  // Get search term
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  // Get checked categories
+  const checkedCategories = Array.from(checkboxes)
+    .filter((check) => check.checked)
+    .map((check) => check.id);
+
+  // Loop over products and check for matches
+  productElements.forEach((productElement, index) => {
+    const product = products[index];
+
+    // Check to see if product matches the search or checked items
+    const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
+    const isInCheckedCategory =
+      checkedCategories.length === 0 ||
+      checkedCategories.includes(product.category);
+
+    // Show or hide product based on matches
+    if (matchesSearchTerm && isInCheckedCategory) {
+      productElement.classList.remove('hidden');
+    } else {
+      productElement.classList.add('hidden');
+    }
+  });
 }
