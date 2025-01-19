@@ -148,3 +148,11 @@ function updateCart(event) {
   cartCount.innerText = cartItemCount.toString();
   console.log(cartCount, cartItemCount);
 }
+
+function filterProducts() {
+  // Get search term
+  const searchTerm = searchInput.ariaValueMax.trim().toLocaleLowerCase();
+
+  const checkedCats = Array.from(checkboxes)
+        .filter(check => check.checked).map(check => check.id);
+}
