@@ -84,6 +84,10 @@ const products = [
   let cartItemCount = 0;
 
   const productElements = [];
+  
+  // Event listeners for filtering
+  filtersContainer.addEventListener('change', filterProducts);
+  searchInput.addEventListener('input', filterProducts);
 
 // Loop over the products and create the product elements
 products.forEach((product) => {
