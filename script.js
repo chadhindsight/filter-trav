@@ -84,7 +84,7 @@ const products = [
   let cartItemCount = 0;
 
   const productElements = [];
-  console.log(searchInput, 'ass')
+  
   // Event listeners for filtering
   filtersContainer.addEventListener('change', filterProducts);
   searchInput.addEventListener('input', filterProducts);
