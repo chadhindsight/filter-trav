@@ -157,11 +157,10 @@ function filterProducts( ) {
     .filter((check) => check.checked)
     .map((check) => check.id);
 
-  // Loop over products and check for matches
   productElements.forEach((productElement, index) => {
     const product = products[index];
 
-    // Check to see if product matches the search or checked items
+ 
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
     const isInCheckedCategory =
       checkedCategories.length === 0 ||
