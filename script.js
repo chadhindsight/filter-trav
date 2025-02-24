@@ -89,7 +89,7 @@ const products = [
   filtersContainer.addEventListener('change', filterProducts);
   searchInput.addEventListener('input', filterProducts);
 
-// Loop over the products and create the product elements
+// Loop over the products and create the DOM elements for each product
 products.forEach((product) => {
   const productElement = createProductElement(product);
   productElements.push(productElement);
