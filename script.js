@@ -85,7 +85,7 @@ const products = [
 
   const productElements = [];
   
-  // Event listeners for filtering
+  // Event listeners for DOM elements involved in filtering
   filtersContainer.addEventListener('change', filterProducts);
   searchInput.addEventListener('input', filterProducts);
 
